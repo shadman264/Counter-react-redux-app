@@ -1,10 +1,8 @@
-import { combineReducers } from "redux";
-import { routerReducer } from "react-router-redux";
-import { reducer as formReducer } from "redux-form";
+import { combineReducers } from 'redux';
+import counterReducer from './CounterReducer';
 
-// main reducers
-export const reducers = combineReducers({
-  routing: routerReducer,
-  form: formReducer,
-  // your reducer here
-});
+const reducers = combineReducers({
+    newState: counterReducer
+})
+
+export default reducers;

@@ -1,14 +1,19 @@
 import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { store } from "./store.js";
-import { router } from "./router.js";
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import App from './components/App.js';
+import counterReducer from './reducers';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const store = createStore(counterReducer);
 
 // render the main component
 ReactDOM.render(
-  <Provider store={store}>
-    {router}
-  </Provider>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <App/>
+    </Provider>
+    ,
+    document.getElementById('app')
 );
